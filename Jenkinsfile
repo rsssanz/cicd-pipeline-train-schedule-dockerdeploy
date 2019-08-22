@@ -15,7 +15,8 @@ pipeline {
             steps {
                 script {
                     app = docker.build("rsssanz/train-schedule")
-                
+                 app.inside {
+                        sh 'echo $(curl localhost:8080)'
                 }
             }
         }
